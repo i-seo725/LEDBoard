@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         designTextField()
-        designButton(button: sendButton, title: "Send", color: UIColor.lightGray)
+        designButton(button: sendButton, title: "Send", color: UIColor.black)
         designButton(button: randomTextStyleButton, title: "Aa", color: UIColor.red)
         searchAreaView.layer.cornerRadius = 10
         designResultLabel()
@@ -49,12 +49,34 @@ class ViewController: UIViewController {
     
     @IBAction func tapViewGesture(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+        searchAreaView.isHidden.toggle()
     }
     
     @IBAction func finishTyped(_ sender: UITextField) {
         resultLabel.text = sender.text
+        resultLabel.textColor = pickRandomColor()
     }
     
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        resultLabel.text = wordTextField.text
+        resultLabel.textColor = pickRandomColor()
+        print("버튼 클릭")
+    }
+    
+    @IBAction func randomStyleButtonTapped(_ sender: UIButton) {
+        resultLabel.textColor = pickRandomColor()
+        print("랜덤 스타일")
+    }
+    
+    func pickRandomColor() -> UIColor {
+        let colors = [UIColor.red, UIColor.blue, UIColor.green, UIColor.gray, UIColor.brown, UIColor.cyan, UIColor.purple, UIColor.orange, UIColor.yellow, UIColor.magenta]
+        let randomColor = colors.randomElement()
+        if let randomColor {
+            return randomColor
+        } else {
+            return UIColor.black
+        }
+    }
 
 }
 
