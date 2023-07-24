@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         designTextField()
-        designButton(button: sendButton, title: "Send", color: UIColor.black)
+        designButton(button: sendButton, title: "Send", color: UIColor.lightGray)
         designButton(button: randomTextStyleButton, title: "Aa", color: UIColor.red)
         searchAreaView.layer.cornerRadius = 10
         designResultLabel()
@@ -46,6 +46,15 @@ class ViewController: UIViewController {
         resultLabel.text = ""
 //        resultLabel.textColor = .white
     }
+    
+    @IBAction func tapViewGesture(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func finishTyped(_ sender: UITextField) {
+        resultLabel.text = sender.text
+    }
+    
 
 }
 

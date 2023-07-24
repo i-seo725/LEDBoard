@@ -27,6 +27,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="finishTyped:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="Ocz-Fe-ljx"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqO-GS-LwD">
                                                 <rect key="frame" x="548" y="0.0" width="75" height="44"/>
@@ -59,6 +62,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Zl5-Gx-tQW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2lq-FV-8lb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zl5-Gx-tQW" secondAttribute="trailing" constant="10" id="B4k-3X-YGj"/>
@@ -70,16 +74,24 @@
                             <constraint firstItem="6kM-NM-9Kb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rby-ms-UMw"/>
                             <constraint firstItem="Zl5-Gx-tQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="tj8-Cs-Rof"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Pba-SB-gLh" appends="YES" id="axK-vw-JWc"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="randomTextStyleButton" destination="K5Q-i2-6lK" id="Tdp-jH-1Yu"/>
                         <outlet property="resultLabel" destination="6kM-NM-9Kb" id="no8-zp-lj7"/>
                         <outlet property="searchAreaView" destination="Zl5-Gx-tQW" id="xxU-Cd-NgS"/>
                         <outlet property="sendButton" destination="UqO-GS-LwD" id="6hN-Jb-pzQ"/>
-                        <outlet property="wordTextField" destination="mPT-cP-cbG" id="2y8-Xy-owv"/>
+                        <outlet property="wordTextField" destination="mPT-cP-cbG" id="LZm-Ap-tPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Pba-SB-gLh">
+                    <connections>
+                        <action selector="tapViewGesture:" destination="BYZ-38-t0r" id="IBU-6W-meO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138" y="4"/>
         </scene>
